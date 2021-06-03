@@ -1,3 +1,4 @@
+import 'package:costcalculator/cost.dart';
 import 'package:flutter/material.dart';
 
 class QuestionWidget extends StatelessWidget {
@@ -28,7 +29,9 @@ class QuestionWidget extends StatelessWidget {
               options: options,
               cost: cost,
             ),
-            Text('Cost: \$' + cost.toString()),
+            Text('Cost: \$' +
+                cost.toString() +
+                '. Cost Depends on the choice chosen'),
           ],
         ),
       ),
@@ -55,6 +58,7 @@ class _DropDownListState extends State<DropDownList> {
     dropdownValue = items[0];
     if (dropdownValue == 'Yes' || items.length == 3) {
       estimatedCost += cost;
+      Cost.cost = estimatedCost;
       print(estimatedCost);
     }
   }
@@ -78,6 +82,8 @@ class _DropDownListState extends State<DropDownList> {
             estimatedCost -= cost;
           }
           this.dropdownValue = value.toString();
+          Cost.cost = estimatedCost;
+          print('Static var ' + Cost.cost.toString());
           print(estimatedCost);
         });
       },

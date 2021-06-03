@@ -1,4 +1,6 @@
 import 'package:costcalculator/Models/question.dart';
+import 'package:costcalculator/cost.dart';
+import 'package:costcalculator/scrollingeffect.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets.dart';
@@ -28,6 +30,7 @@ class _WebSelectState extends State<WebSelect> {
     Question('Do you want professional analytics tools to track conversions?',
         ['Yes', 'No'], 50),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,14 +45,36 @@ class _WebSelectState extends State<WebSelect> {
               Padding(
                 padding: const EdgeInsets.only(bottom: 40.0),
                 child: Container(
-                  child: ListView.builder(
-                      itemBuilder: (_, int index) => QuestionWidget(
-                          questions[index].question,
-                          questions[index].options,
-                          questions[index].cost),
-                      itemCount: questions.length),
+                  child: ScrollConfiguration(
+                    behavior: MyBehavior(),
+                    child: ListView.builder(
+                        itemBuilder: (_, int index) => QuestionWidget(
+                            questions[index].question,
+                            questions[index].options,
+                            questions[index].cost),
+                        itemCount: questions.length),
+                  ),
                 ),
               ),
+              Positioned(
+                bottom: 10.0,
+                left: 10.0,
+                child: Text(
+                  'Current Estimated Cost: \$' + Cost.cost.toString(),
+                ),
+              ),
+              Positioned(
+                bottom: 0.0,
+                right: 10.0,
+                child: ElevatedButton.icon(
+                  onPressed: () {
+                    print('Clciked');
+                    setState(() {});
+                  },
+                  icon: Icon(Icons.update_rounded),
+                  label: Text('Update Cost'),
+                ),
+              )
             ],
           ),
         ),
