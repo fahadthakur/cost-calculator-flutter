@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 class QuestionWidget extends StatelessWidget {
   final String question;
   final List<String> options;
-  QuestionWidget(this.question, this.options);
+  final int cost;
+  QuestionWidget(this.question, this.options, this.cost);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,9 @@ class QuestionWidget extends StatelessWidget {
             ),
             DropDownList(
               options: options,
+              cost: cost,
             ),
+            Text('Cost: \$' + cost.toString()),
           ],
         ),
       ),
@@ -35,17 +38,25 @@ class QuestionWidget extends StatelessWidget {
 
 class DropDownList extends StatefulWidget {
   final List<String> options;
-  const DropDownList({Key? key, required this.options}) : super(key: key);
+  final int cost;
+  const DropDownList({Key? key, required this.options, required this.cost})
+      : super(key: key);
 
   @override
-  _DropDownListState createState() => _DropDownListState(options);
+  _DropDownListState createState() => _DropDownListState(options, cost);
 }
 
 class _DropDownListState extends State<DropDownList> {
   final List<String> items;
+  final int cost;
+  static int estimatedCost = 0;
   String dropdownValue = '';
-  _DropDownListState(this.items) {
+  _DropDownListState(this.items, this.cost) {
     dropdownValue = items[0];
+    if (dropdownValue == 'Yes' || items.length == 3) {
+      estimatedCost += cost;
+      print(estimatedCost);
+    }
   }
 
   @override
@@ -60,7 +71,14 @@ class _DropDownListState extends State<DropDownList> {
         setState(() {
           print("previous ${this.dropdownValue}");
           print("selected $value");
+          if ((value == 'Yes' || value == '10+') && dropdownValue != value) {
+            estimatedCost += cost;
+          }
+          if ((value == 'No' || value == '1-10') && dropdownValue != value) {
+            estimatedCost -= cost;
+          }
           this.dropdownValue = value.toString();
+          print(estimatedCost);
         });
       },
       value: dropdownValue,
