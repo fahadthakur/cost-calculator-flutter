@@ -54,7 +54,7 @@ class _WebSelectState extends State<WebSelect> {
       ),
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 16.0),
+          padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
           child: Stack(
             alignment: Alignment.center,
             children: [
