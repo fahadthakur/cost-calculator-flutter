@@ -36,7 +36,15 @@ class _ReviewPageState extends State<ReviewPage> {
                   Text(
                     'Review your chosen options',
                     style:
-                        TextStyle(fontSize: 22.0, fontWeight: FontWeight.w600),
+                        TextStyle(fontSize: 23.0, fontWeight: FontWeight.w600),
+                  ),
+                  SizedBox(
+                    height: 20.0,
+                  ),
+                  Text(
+                    'Industry: ${CostReview.industry}',
+                    style:
+                        TextStyle(fontSize: 23.0, fontWeight: FontWeight.w500),
                   ),
                   Expanded(
                     child: ScrollConfiguration(
@@ -52,7 +60,7 @@ class _ReviewPageState extends State<ReviewPage> {
                                 title: new Text(
                                   '$key',
                                   style: TextStyle(
-                                      fontSize: 22.0,
+                                      fontSize: 20.0,
                                       fontWeight: FontWeight.w500),
                                 ),
                                 subtitle: new Text(
@@ -61,7 +69,7 @@ class _ReviewPageState extends State<ReviewPage> {
                                 ),
                               ),
                               SizedBox(
-                                height: 6.0,
+                                height: 5.0,
                               ),
                             ],
                           );
