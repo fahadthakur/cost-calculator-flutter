@@ -1,4 +1,7 @@
+import 'dart:ui';
+
 import 'package:costcalculator/Models/question.dart';
+import 'package:costcalculator/Screens/review.dart';
 import 'package:costcalculator/cost.dart';
 import 'package:costcalculator/scrollingeffect.dart';
 import 'package:flutter/material.dart';
@@ -35,15 +38,26 @@ class _WebSelectState extends State<WebSelect> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Business Website Cost Calculator"),
+        leading: IconButton(
+            onPressed: () {
+              CostReview.optionsChosen.clear();
+              CostReview.estimatedCost = 0;
+              print(CostReview.optionsChosen);
+            },
+            icon: Icon(Icons.arrow_back_ios_new_rounded)),
+        title: Text(
+          "Business Website Cost Calculator",
+          style: TextStyle(fontSize: 22.0),
+        ),
       ),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 16.0),
           child: Stack(
+            alignment: Alignment.center,
             children: [
               Padding(
-                padding: const EdgeInsets.only(bottom: 40.0),
+                padding: const EdgeInsets.only(bottom: 80.0),
                 child: Container(
                   child: ScrollConfiguration(
                     behavior: MyBehavior(),
@@ -57,24 +71,51 @@ class _WebSelectState extends State<WebSelect> {
                 ),
               ),
               Positioned(
-                bottom: 10.0,
-                left: 10.0,
-                child: Text(
-                  'Current Estimated Cost: \$' + Cost.cost.toString(),
+                bottom: 0.0,
+                child: Column(
+                  children: [
+                    Text(
+                      'Current Estimated Cost: \$' +
+                          CostReview.estimatedCost.toString(),
+                      style: TextStyle(
+                          fontSize: 20.0, fontWeight: FontWeight.w500),
+                    ),
+                    Row(
+                      //crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        ElevatedButton.icon(
+                          onPressed: () {
+                            print('Clciked');
+                            setState(() {});
+                          },
+                          icon: Icon(Icons.update_rounded),
+                          label: Text(
+                            'Update Cost',
+                            style: TextStyle(fontSize: 20.0),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10.0,
+                        ),
+                        ElevatedButton.icon(
+                          onPressed: () {
+                            print(CostReview.optionsChosen);
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => ReviewPage()));
+                          },
+                          icon: Icon(Icons.reviews_rounded),
+                          label: Text(
+                            'Review Chosen Options',
+                            style: TextStyle(fontSize: 20.0),
+                          ),
+                        )
+                      ],
+                    )
+                  ],
                 ),
               ),
-              Positioned(
-                bottom: 0.0,
-                right: 10.0,
-                child: ElevatedButton.icon(
-                  onPressed: () {
-                    print('Clciked');
-                    setState(() {});
-                  },
-                  icon: Icon(Icons.update_rounded),
-                  label: Text('Update Cost'),
-                ),
-              )
             ],
           ),
         ),

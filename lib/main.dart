@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.latoTextTheme(
           Theme.of(context).textTheme,
         ),
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.indigo,
       ),
       home: new WebSelect(),
     );

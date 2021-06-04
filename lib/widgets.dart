@@ -5,7 +5,9 @@ class QuestionWidget extends StatelessWidget {
   final String question;
   final List<String> options;
   final int cost;
-  QuestionWidget(this.question, this.options, this.cost);
+  QuestionWidget(this.question, this.options, this.cost) {
+    CostReview.optionsChosen.putIfAbsent(question, () => options[0]);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +30,7 @@ class QuestionWidget extends StatelessWidget {
             DropDownList(
               options: options,
               cost: cost,
+              question: question,
             ),
             Text('Cost: \$' +
                 cost.toString() +
@@ -40,13 +43,19 @@ class QuestionWidget extends StatelessWidget {
 }
 
 class DropDownList extends StatefulWidget {
+  final String question;
   final List<String> options;
   final int cost;
-  const DropDownList({Key? key, required this.options, required this.cost})
+  const DropDownList(
+      {Key? key,
+      required this.options,
+      required this.cost,
+      required this.question})
       : super(key: key);
 
   @override
-  _DropDownListState createState() => _DropDownListState(options, cost);
+  _DropDownListState createState() =>
+      _DropDownListState(options, cost, question);
 }
 
 class _DropDownListState extends State<DropDownList> {
@@ -54,11 +63,13 @@ class _DropDownListState extends State<DropDownList> {
   final int cost;
   static int estimatedCost = 0;
   String dropdownValue = '';
-  _DropDownListState(this.items, this.cost) {
+  final String question;
+
+  _DropDownListState(this.items, this.cost, this.question) {
     dropdownValue = items[0];
     if (dropdownValue == 'Yes' || items.length == 3) {
       estimatedCost += cost;
-      Cost.cost = estimatedCost;
+      CostReview.estimatedCost = estimatedCost;
       print(estimatedCost);
     }
   }
@@ -82,10 +93,12 @@ class _DropDownListState extends State<DropDownList> {
             estimatedCost -= cost;
           }
           this.dropdownValue = value.toString();
-          Cost.cost = estimatedCost;
-          print('Static var ' + Cost.cost.toString());
+          CostReview.estimatedCost = estimatedCost;
+
+          print('Static var ' + CostReview.estimatedCost.toString());
           print(estimatedCost);
         });
+        CostReview.optionsChosen.update(question, (value) => dropdownValue);
       },
       value: dropdownValue,
     );

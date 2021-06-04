@@ -1,3 +1,7 @@
-class Cost {
-  static int cost = 0;
+import 'package:costcalculator/Models/question.dart';
+
+class CostReview {
+  static int estimatedCost = 0;
+
+  static Map optionsChosen = {};
 }
