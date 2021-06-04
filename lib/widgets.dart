@@ -61,13 +61,14 @@ class DropDownList extends StatefulWidget {
 class _DropDownListState extends State<DropDownList> {
   final List<String> items;
   final int cost;
-  static int estimatedCost = 0;
+  static int estimatedCost = CostReview.estimatedCost;
   String dropdownValue = '';
   final String question;
 
   _DropDownListState(this.items, this.cost, this.question) {
     dropdownValue = items[0];
     if (dropdownValue == 'Yes' || items.length == 3) {
+      estimatedCost = CostReview.estimatedCost;
       estimatedCost += cost;
       CostReview.estimatedCost = estimatedCost;
       print(estimatedCost);
