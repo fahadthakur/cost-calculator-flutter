@@ -1,9 +1,8 @@
+import 'package:costcalculator/Screens/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:responsive_framework/utils/scroll_behavior.dart';
-
-import 'Screens/webselect.dart';
 
 void main() {
   runApp(MyApp());
@@ -33,7 +32,7 @@ class MyApp extends StatelessWidget {
         ),
         primarySwatch: Colors.indigo,
       ),
-      home: new WebSelect(),
+      home: new Homepage(),
     );
   }
 }
