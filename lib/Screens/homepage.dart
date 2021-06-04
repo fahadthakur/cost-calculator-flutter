@@ -33,7 +33,7 @@ class _HomepageState extends State<Homepage> {
       ),
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 16.0),
+          padding: EdgeInsets.symmetric(horizontal: 32.0, vertical: 16.0),
           child: Container(
             child: Center(
               child: Column(
@@ -51,11 +51,6 @@ class _HomepageState extends State<Homepage> {
                     builder: (FormFieldState<String> state) {
                       return InputDecorator(
                         decoration: InputDecoration(
-                            // icon: Icon(
-                            //   Icons.home_work_rounded,
-                            //   color: Colors.indigo,
-                            //   size: 32.0,
-                            // ),
                             labelText: 'Industry',
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(20.0))),
