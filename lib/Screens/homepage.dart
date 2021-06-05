@@ -52,12 +52,16 @@ class _HomepageState extends State<Homepage> {
                     builder: (FormFieldState<String> state) {
                       return InputDecorator(
                         decoration: InputDecoration(
-                            labelText: 'Industry',
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(20.0))),
+                          labelText: 'Industry',
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20.0)),
+                        ),
                         isEmpty: chosenIndustry == '',
                         child: DropdownButtonHideUnderline(
                           child: DropdownButton<String>(
+                            icon: Icon(Icons.arrow_drop_down_circle_rounded),
+                            iconEnabledColor: Colors.indigo,
+                            isExpanded: true,
                             value: chosenIndustry,
                             isDense: true,
                             onChanged: (value) {
