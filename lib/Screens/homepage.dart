@@ -36,147 +36,134 @@ class _HomepageState extends State<Homepage> {
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 32.0, vertical: 16.0),
           child: Container(
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Welcome to the cost calculator app. Begin by choosing your targetted industry followed by your targetted development option.',
-                    style: TextStyle(
-                      fontSize: 18.0,
-                      color: Colors.grey,
-                    ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(25.0),
+                  child: Container(
+                    width: 200.0,
+                    height: 200.0,
+                    child: Image.asset('assets/invoice_logo.png'),
                   ),
-                  Text(
-                    'To save your review as a PDF, use the save button on the review page',
-                    style: TextStyle(
-                      fontSize: 18.0,
-                      color: Colors.grey,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 40.0,
-                  ),
-                  Text(
-                    'What is your target industry?',
-                    style:
-                        TextStyle(fontSize: 23.0, fontWeight: FontWeight.w600),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  FormField<String>(
-                    builder: (FormFieldState<String> state) {
-                      return InputDecorator(
-                        decoration: InputDecoration(
-                          labelText: 'Industry',
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20.0)),
-                        ),
-                        isEmpty: chosenIndustry == '',
-                        child: DropdownButtonHideUnderline(
-                          child: DropdownButton<String>(
-                            icon: Icon(Icons.arrow_drop_down_circle_rounded),
-                            iconEnabledColor: Colors.indigo,
-                            isExpanded: true,
-                            value: chosenIndustry,
-                            isDense: true,
-                            onChanged: (value) {
-                              setState(() {
-                                chosenIndustry = value.toString();
-                                state.didChange(value);
-                              });
-                              if (chosenIndustry == 'Others') {
-                                contentVisible = true;
-                              } else {
-                                contentVisible = false;
-                              }
-                              CostReview.industry = chosenIndustry;
-                              print(CostReview.industry);
-                            },
-                            items: industries.map((String value) {
-                              return DropdownMenuItem<String>(
-                                value: value,
-                                child: Text(
-                                  value,
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                  ),
+                ),
+                Text(
+                  'What is your target industry?',
+                  style: TextStyle(fontSize: 23.0, fontWeight: FontWeight.w600),
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+                FormField<String>(
+                  builder: (FormFieldState<String> state) {
+                    return InputDecorator(
+                      decoration: InputDecoration(
+                        labelText: 'Industry',
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20.0)),
+                      ),
+                      isEmpty: chosenIndustry == '',
+                      child: DropdownButtonHideUnderline(
+                        child: DropdownButton<String>(
+                          icon: Icon(Icons.arrow_drop_down_circle_rounded),
+                          iconEnabledColor: Colors.indigo,
+                          isExpanded: true,
+                          value: chosenIndustry,
+                          isDense: true,
+                          onChanged: (value) {
+                            setState(() {
+                              chosenIndustry = value.toString();
+                              state.didChange(value);
+                            });
+                            if (chosenIndustry == 'Others') {
+                              contentVisible = true;
+                            } else {
+                              contentVisible = false;
+                            }
+                            CostReview.industry = chosenIndustry;
+                            print(CostReview.industry);
+                          },
+                          items: industries.map((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(
+                                value,
+                                style: TextStyle(
+                                  fontSize: 18.0,
                                 ),
-                              );
-                            }).toList(),
-                          ),
+                              ),
+                            );
+                          }).toList(),
                         ),
-                      );
+                      ),
+                    );
+                  },
+                ),
+                SizedBox(
+                  height: 20.0,
+                ),
+                Visibility(
+                  visible: contentVisible,
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      labelText: 'Name of the industry',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                      ),
+                      labelStyle: TextStyle(fontSize: 16.0),
+                    ),
+                    style: TextStyle(fontSize: 18.0),
+                    onChanged: (value) {
+                      CostReview.industry = value;
+                      print(CostReview.industry);
                     },
                   ),
-                  SizedBox(
-                    height: 20.0,
-                  ),
-                  Visibility(
-                    visible: contentVisible,
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        labelText: 'Name of the industry',
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20.0),
-                        ),
-                        labelStyle: TextStyle(fontSize: 16.0),
-                      ),
-                      style: TextStyle(fontSize: 18.0),
-                      onChanged: (value) {
-                        CostReview.industry = value;
-                        print(CostReview.industry);
+                ),
+                SizedBox(
+                  height: 20.0,
+                ),
+                Text(
+                  'What are you planning to develop?',
+                  style: TextStyle(fontSize: 23.0, fontWeight: FontWeight.w600),
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton.icon(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => WebSelect()));
                       },
+                      icon: Icon(Icons.web_rounded),
+                      label: Text(
+                        'Business Website',
+                        style: TextStyle(fontSize: 18.0),
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 25.0,
-                  ),
-                  Text(
-                    'What are you planning to develop?',
-                    style:
-                        TextStyle(fontSize: 23.0, fontWeight: FontWeight.w600),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ElevatedButton.icon(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => WebSelect()));
-                        },
-                        icon: Icon(Icons.web_rounded),
-                        label: Text(
-                          'Business Website',
-                          style: TextStyle(fontSize: 18.0),
-                        ),
+                    SizedBox(
+                      width: 20.0,
+                    ),
+                    ElevatedButton.icon(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => MobileSelect()));
+                      },
+                      icon: Icon(Icons.phone_android_rounded),
+                      label: Text(
+                        'Mobile App',
+                        style: TextStyle(fontSize: 18.0),
                       ),
-                      SizedBox(
-                        width: 20.0,
-                      ),
-                      ElevatedButton.icon(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => MobileSelect()));
-                        },
-                        icon: Icon(Icons.phone_android_rounded),
-                        label: Text(
-                          'Mobile App',
-                          style: TextStyle(fontSize: 18.0),
-                        ),
-                      )
-                    ],
-                  )
-                ],
-              ),
+                    )
+                  ],
+                )
+              ],
             ),
           ),
         ),
