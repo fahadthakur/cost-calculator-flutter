@@ -64,7 +64,8 @@ class DropDownList extends StatefulWidget {
       _DropDownListState(options, cost, question);
 }
 
-class _DropDownListState extends State<DropDownList> {
+class _DropDownListState extends State<DropDownList>
+    with AutomaticKeepAliveClientMixin {
   final List<String> items;
   final int cost;
   static int estimatedCost = CostReview.estimatedCost;
@@ -77,8 +78,12 @@ class _DropDownListState extends State<DropDownList> {
       estimatedCost = CostReview.estimatedCost;
       estimatedCost += cost;
       CostReview.estimatedCost = estimatedCost;
+      print(CostReview.estimatedCost);
     }
   }
+
+  @override
+  bool get wantKeepAlive => true;
 
   @override
   Widget build(BuildContext context) {

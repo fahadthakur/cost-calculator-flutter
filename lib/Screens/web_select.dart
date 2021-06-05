@@ -47,7 +47,7 @@ class _WebSelectState extends State<WebSelect> {
 
                 Navigator.pop(context);
               },
-              icon: Icon(Icons.arrow_back_ios_new_rounded)),
+              icon: Icon(Icons.arrow_back_ios_rounded)),
           title: Text(
             "Business Website Cost Calculator",
             style: TextStyle(fontSize: 22.0),
@@ -123,7 +123,7 @@ class _WebSelectState extends State<WebSelect> {
                                       MaterialPageRoute(
                                           builder: (context) => ReviewPage()));
                                 },
-                                icon: Icon(Icons.reviews_rounded),
+                                icon: Icon(Icons.rate_review_rounded),
                                 label: Text(
                                   'Review Options',
                                   style: TextStyle(fontSize: 20.0),

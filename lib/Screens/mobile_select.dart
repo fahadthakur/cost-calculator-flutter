@@ -44,7 +44,7 @@ class _MobileSelectState extends State<MobileSelect> {
 
                 Navigator.pop(context);
               },
-              icon: Icon(Icons.arrow_back_ios_new_rounded)),
+              icon: Icon(Icons.arrow_back_ios_rounded)),
           title: Text(
             "Mobile App Cost Calculator",
             style: TextStyle(fontSize: 22.0),
@@ -120,7 +120,7 @@ class _MobileSelectState extends State<MobileSelect> {
                                       MaterialPageRoute(
                                           builder: (context) => ReviewPage()));
                                 },
-                                icon: Icon(Icons.reviews_rounded),
+                                icon: Icon(Icons.rate_review_rounded),
                                 label: Text(
                                   'Review Options',
                                   style: TextStyle(fontSize: 20.0),
