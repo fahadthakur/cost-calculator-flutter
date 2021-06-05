@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:costcalculator/cost.dart';
 import 'package:costcalculator/scrollingeffect.dart';
 import 'package:flutter/material.dart';
