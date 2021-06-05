@@ -80,11 +80,13 @@ class _ReviewPageState extends State<ReviewPage> {
                         ),
                       ),
                     ),
-                    Text(
-                      'Estimated Cost: \$ ${CostReview.estimatedCost}',
-                      style: TextStyle(
-                        fontSize: 22.0,
-                        fontWeight: FontWeight.w600,
+                    ListTile(
+                      title: Text(
+                        'Estimated Cost: \$ ${CostReview.estimatedCost}',
+                        style: TextStyle(
+                          fontSize: 22.0,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ),
                   ],
@@ -93,10 +95,15 @@ class _ReviewPageState extends State<ReviewPage> {
                   bottom: 0.0,
                   right: 0.0,
                   child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10.0),
-                    child: FloatingActionButton(
-                      child: Icon(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 10.0, vertical: 8.0),
+                    child: FloatingActionButton.extended(
+                      icon: Icon(
                         Icons.save_rounded,
+                      ),
+                      label: Text(
+                        'Save to PDF',
+                        style: TextStyle(fontSize: 14.0),
                       ),
                       onPressed: () async {
                         final pdfFile = await PdfApi.generateDocument();

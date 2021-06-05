@@ -57,7 +57,7 @@ class _MobileSelectState extends State<MobileSelect> {
               alignment: Alignment.center,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 80.0),
+                  padding: const EdgeInsets.only(bottom: 90.0),
                   child: Container(
                     child: ScrollConfiguration(
                       behavior: MyBehavior(),
@@ -80,37 +80,55 @@ class _MobileSelectState extends State<MobileSelect> {
                         style: TextStyle(
                             fontSize: 20.0, fontWeight: FontWeight.w500),
                       ),
-                      Row(
-                        //crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          ElevatedButton.icon(
-                            onPressed: () {
-                              setState(() {});
-                            },
-                            icon: Icon(Icons.update_rounded),
-                            label: Text(
-                              'Update Cost',
-                              style: TextStyle(fontSize: 20.0),
+                      Padding(
+                        padding: EdgeInsets.symmetric(vertical: 10.0),
+                        child: Row(
+                          children: [
+                            SizedBox(
+                              height: 40.0,
+                              child: ElevatedButton.icon(
+                                style: ElevatedButton.styleFrom(
+                                  shape: new RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20.0),
+                                  ),
+                                ),
+                                onPressed: () {
+                                  setState(() {});
+                                },
+                                icon: Icon(Icons.update_rounded),
+                                label: Text(
+                                  'Update Cost',
+                                  style: TextStyle(fontSize: 20.0),
+                                ),
+                              ),
                             ),
-                          ),
-                          SizedBox(
-                            width: 10.0,
-                          ),
-                          ElevatedButton.icon(
-                            onPressed: () {
-                              print(CostReview.optionsChosen);
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => ReviewPage()));
-                            },
-                            icon: Icon(Icons.reviews_rounded),
-                            label: Text(
-                              'Review Chosen Options',
-                              style: TextStyle(fontSize: 20.0),
+                            SizedBox(
+                              width: 10.0,
                             ),
-                          )
-                        ],
+                            SizedBox(
+                              height: 40.0,
+                              child: ElevatedButton.icon(
+                                style: ElevatedButton.styleFrom(
+                                  shape: new RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20.0),
+                                  ),
+                                ),
+                                onPressed: () {
+                                  print(CostReview.optionsChosen);
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => ReviewPage()));
+                                },
+                                icon: Icon(Icons.reviews_rounded),
+                                label: Text(
+                                  'Review Options',
+                                  style: TextStyle(fontSize: 20.0),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
                       )
                     ],
                   ),
