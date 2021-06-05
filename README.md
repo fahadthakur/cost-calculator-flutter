@@ -1,16 +1,19 @@
-# costcalculator
+# Cost Calculator App - Flutter
 
-A new Flutter project.
+This application allows the user to calculate the cost required to develop their product or service based on a preset pricing model.
 
-## Getting Started
+![image](https://user-images.githubusercontent.com/70024491/120906494-84ada800-c662-11eb-87b8-244f4e5ba151.png)
 
-This project is a starting point for a Flutter application.
+## Features
 
-A few resources to get you started if this is your first Flutter project:
+### Chossing an industry
+The application allows the user to choose between Education, Healthcare, Travel & Toursim, Bank & Finance and Government industries. The user can also choose their own own industry by choosing the 'Others' options and typing the name of their industry.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+### Chossing a the development plan
+The user can choose between calculating the cost to develop a Business Website or a Mobile App.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Business Website / Mobile App Cost Calculator Page
+The user can use these pages to calculate the estimated cost based on the options that they can choose from a dropdown list. They can update their costs multiple times in the same session or click the review button to review their choices.
+
+### Review Page
+The user can review the choices that they have chosen as well as the estimated costing for those selected choices. They can also generate a PDF document of those choices and the estimated cost.
