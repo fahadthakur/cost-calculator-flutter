@@ -1,3 +1,4 @@
+import 'package:costcalculator/Screens/mobileselect.dart';
 import 'package:costcalculator/Screens/webselect.dart';
 import 'package:costcalculator/cost.dart';
 import 'package:flutter/material.dart';
@@ -139,7 +140,12 @@ class _HomepageState extends State<Homepage> {
                         width: 20.0,
                       ),
                       ElevatedButton.icon(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => MobileSelect()));
+                        },
                         icon: Icon(Icons.phone_android_rounded),
                         label: Text(
                           'Mobile App',
