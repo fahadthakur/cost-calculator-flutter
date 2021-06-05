@@ -41,8 +41,7 @@ class _MobileSelectState extends State<MobileSelect> {
               onPressed: () {
                 CostReview.optionsChosen.clear();
                 CostReview.estimatedCost = 0;
-                print(CostReview.optionsChosen);
-                print(CostReview.estimatedCost);
+
                 Navigator.pop(context);
               },
               icon: Icon(Icons.arrow_back_ios_new_rounded)),
@@ -86,7 +85,6 @@ class _MobileSelectState extends State<MobileSelect> {
                         children: [
                           ElevatedButton.icon(
                             onPressed: () {
-                              print('Clciked');
                               setState(() {});
                             },
                             icon: Icon(Icons.update_rounded),

@@ -77,7 +77,6 @@ class _DropDownListState extends State<DropDownList> {
       estimatedCost = CostReview.estimatedCost;
       estimatedCost += cost;
       CostReview.estimatedCost = estimatedCost;
-      print(estimatedCost);
     }
   }
 
@@ -93,8 +92,6 @@ class _DropDownListState extends State<DropDownList> {
           .toList(),
       onChanged: (value) {
         setState(() {
-          print("previous ${this.dropdownValue}");
-          print("selected $value");
           if ((value == 'Yes' || value == '10+') && dropdownValue != value) {
             estimatedCost += cost;
           }
@@ -103,9 +100,6 @@ class _DropDownListState extends State<DropDownList> {
           }
           this.dropdownValue = value.toString();
           CostReview.estimatedCost = estimatedCost;
-
-          print('Static var ' + CostReview.estimatedCost.toString());
-          print(estimatedCost);
         });
         CostReview.optionsChosen.update(question, (value) => dropdownValue);
       },

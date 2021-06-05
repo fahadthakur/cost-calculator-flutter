@@ -44,8 +44,7 @@ class _WebSelectState extends State<WebSelect> {
               onPressed: () {
                 CostReview.optionsChosen.clear();
                 CostReview.estimatedCost = 0;
-                print(CostReview.optionsChosen);
-                print(CostReview.estimatedCost);
+
                 Navigator.pop(context);
               },
               icon: Icon(Icons.arrow_back_ios_new_rounded)),
@@ -85,11 +84,9 @@ class _WebSelectState extends State<WebSelect> {
                             fontSize: 20.0, fontWeight: FontWeight.w500),
                       ),
                       Row(
-                        //crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           ElevatedButton.icon(
                             onPressed: () {
-                              print('Clciked');
                               setState(() {});
                             },
                             icon: Icon(Icons.update_rounded),

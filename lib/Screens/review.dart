@@ -99,7 +99,6 @@ class _ReviewPageState extends State<ReviewPage> {
                         Icons.save_rounded,
                       ),
                       onPressed: () async {
-                        print('Clicked');
                         final pdfFile = await PdfApi.generateDocument();
                         PdfApi.openFile(pdfFile);
                       },

@@ -81,7 +81,7 @@ class _HomepageState extends State<Homepage> {
                               contentVisible = false;
                             }
                             CostReview.industry = chosenIndustry;
-                            print(CostReview.industry);
+                            
                           },
                           items: industries.map((String value) {
                             return DropdownMenuItem<String>(
@@ -115,7 +115,7 @@ class _HomepageState extends State<Homepage> {
                     style: TextStyle(fontSize: 18.0),
                     onChanged: (value) {
                       CostReview.industry = value;
-                      print(CostReview.industry);
+                      
                     },
                   ),
                 ),
