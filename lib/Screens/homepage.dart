@@ -41,6 +41,23 @@ class _HomepageState extends State<Homepage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
+                    'Welcome to the cost calculator app. Begin by choosing your targetted industry followed by your targetted development option.',
+                    style: TextStyle(
+                      fontSize: 18.0,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  Text(
+                    'To save your review as a PDF, use the save button on the review page',
+                    style: TextStyle(
+                      fontSize: 18.0,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 40.0,
+                  ),
+                  Text(
                     'What is your target industry?',
                     style:
                         TextStyle(fontSize: 23.0, fontWeight: FontWeight.w600),

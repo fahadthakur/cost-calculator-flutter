@@ -27,14 +27,20 @@ class QuestionWidget extends StatelessWidget {
                   fontWeight: FontWeight.w500,
                   color: Colors.black),
             ),
-            DropDownList(
-              options: options,
-              cost: cost,
-              question: question,
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 2.0),
+              child: DropDownList(
+                options: options,
+                cost: cost,
+                question: question,
+              ),
             ),
-            Text('Cost: \$' +
-                cost.toString() +
-                '. Cost Depends on the choice chosen'),
+            Text(
+              'Cost: \$' +
+                  cost.toString() +
+                  '. Cost Depends on the choice chosen',
+              style: TextStyle(color: Colors.grey),
+            ),
           ],
         ),
       ),
@@ -78,6 +84,8 @@ class _DropDownListState extends State<DropDownList> {
   @override
   Widget build(BuildContext context) {
     return DropdownButton(
+      icon: Icon(Icons.arrow_drop_down_circle_rounded),
+      iconEnabledColor: Colors.indigo,
       isExpanded: true,
       items: items
           .map((String item) =>
