@@ -1,5 +1,5 @@
-import 'package:costcalculator/cost.dart';
-import 'package:costcalculator/scrollingeffect.dart';
+import 'package:costcalculator/cost_review.dart';
+import 'package:costcalculator/scrolling_effect.dart';
 import 'package:flutter/material.dart';
 
 import '../pdf_api.dart';

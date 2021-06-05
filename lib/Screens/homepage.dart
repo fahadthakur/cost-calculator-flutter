@@ -1,9 +1,9 @@
-import 'package:costcalculator/Screens/mobileselect.dart';
-import 'package:costcalculator/Screens/webselect.dart';
-import 'package:costcalculator/cost.dart';
+import 'package:costcalculator/Screens/mobile_select.dart';
+import 'package:costcalculator/Screens/web_select.dart';
+import 'package:costcalculator/cost_review.dart';
 import 'package:flutter/material.dart';
 
-import '../scrollingeffect.dart';
+import '../scrolling_effect.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
